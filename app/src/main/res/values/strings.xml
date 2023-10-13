@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">CALORIE</string>
+    <string name="app_name_friendly">Calories</string>
+
+    <!-- First activity -->
+    <string name="name">Name</string>
+    <string name="compute">Compute</string>
+
+    <!-- Menu -->
+    <string name="language_settings">Change Language</string>
+    <string name="calendar">Calendar</string>
+    <string name="mail">Mail</string>
+
+    <!-- Second activity -->
+    <!-- Input -->
+    <string name="gender">Biological Gender :</string>
+        <string name="men">Man</string>
+        <string name="women">Woman</string>
+    <string name="birthdate">Birthdate :</string>
+    <string name="weight">Weight :</string>
+    <string name="height">Height :</string>
+        <string name="meter">Meter</string>
+        <string name="Centimeter">Centimeter</string>
+    <string name="physical_act">Physical Activity :</string>
+        <string name="sedentary">Sedentary</string>
+        <string name="active">Active</string>
+        <string name="sport">Sportive</string>
+    <string name="showing">Showing :</string>
+    <!-- Result -->
+    <string name="result">Result :</string>
+    <string name="waiting_compute">You need to click on the \'Compute\' button to see a result.</string>
+    <string name="result_simple">Your daily calorie consumption is %1$d Kcal.</string>
+    <string name="result_complex">%1$s you areYour daily calorie consumption is %2$d Kcal.</string>
+    <string name="reset">Reset</string>
+
+    <!-- Error -->
+    <string name="error">Error</string>
+    <string name="error_date">Heya mate, coun\'t ya puta good date </string>
+    <!--string name="error_date">Dit-donc mon gars, tu pourrai me faire une bonne date ?</string-->
+
+</resources>

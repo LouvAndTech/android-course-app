@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_gender">
+        <item>@string/men</item>
+        <item>@string/women</item>
+    </array>
+    <array name="array_physical_act">
+        <item>@string/sedentary</item>
+        <item>@string/active</item>
+        <item>@string/sport</item>
+    </array>
+    <array name="array_unit">
+        <item>@string/meter</item>
+        <item>@string/Centimeter</item>
+    </array>
+</resources>
