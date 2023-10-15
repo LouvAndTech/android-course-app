@@ -12,9 +12,4 @@
         android:icon="@drawable/mail"
         android:title="@string/mail"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_lang"
-        android:orderInCategory="100"
-        android:title="@string/language_settings"
-        app:showAsAction="never" />
 </menu>

@@ -5,37 +5,46 @@
     <!-- First activity -->
     <string name="name">Name</string>
     <string name="compute">Compute</string>
+    <string name="dialog_title">Hello %1$s</string>
+    <string name="dialog_message">Your last number was %1$.2f Kcal,\nDo you want to recompute it ?.</string>
+    <string name="recipe_button">Food Recipe</string>
 
     <!-- Menu -->
     <string name="language_settings">Change Language</string>
     <string name="calendar">Calendar</string>
-    <string name="mail">Mail</string>
+    <string name="mail" translatable="false">Mail</string>
 
     <!-- Second activity -->
     <!-- Input -->
     <string name="gender">Biological Gender :</string>
-        <string name="men">Man</string>
-        <string name="women">Woman</string>
+    <string name="men">Man</string>
+    <string name="women">Woman</string>
     <string name="birthdate">Birthdate :</string>
     <string name="weight">Weight :</string>
     <string name="height">Height :</string>
-        <string name="meter">Meter</string>
-        <string name="Centimeter">Centimeter</string>
+    <string name="meter">Meter</string>
+    <string name="Centimeter">Centimeter</string>
     <string name="physical_act">Physical Activity :</string>
-        <string name="sedentary">Sedentary</string>
-        <string name="active">Active</string>
-        <string name="sport">Sportive</string>
-    <string name="showing">Showing :</string>
+    <string name="sedentary">Sedentary</string>
+    <string name="active">Active</string>
+    <string name="sport">Sportive</string>
+    <string name="showing">Details :</string>
     <!-- Result -->
     <string name="result">Result :</string>
     <string name="waiting_compute">You need to click on the \'Compute\' button to see a result.</string>
-    <string name="result_simple">Your daily calorie consumption is %1$d Kcal.</string>
-    <string name="result_complex">%1$s you areYour daily calorie consumption is %2$d Kcal.</string>
+    <string name="result_simple">Your daily calorie consumption should be %1$.2f Kcal.</string>
+    <string name="result_complex">%1$s you are %2$s. Your daily calorie consumption should be %3$.2f Kcal.</string>
     <string name="reset">Reset</string>
+    <string name="data_removed">Your data have been removed</string>
+    <string name="mail_content">My last calorie number was %1$.2f.</string>
 
     <!-- Error -->
     <string name="error">Error</string>
     <string name="error_date">Heya mate, coun\'t ya puta good date </string>
-    <!--string name="error_date">Dit-donc mon gars, tu pourrai me faire une bonne date ?</string-->
+    <string name="error_number">You put char in a number only field</string>
+    <string name="error_null">Please fill all the fields</string>
+    <string name="error_global">Something went wrong !</string>
+    <string name="error_no_result">You need to compute your result first.</string>
+    <string name="error_no_mail">There is no email client installed.</string>
 
 </resources>

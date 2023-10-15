@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CALORIE</string>
+    <string name="app_name_friendly">Calories</string>
+    <string name="name">Nom</string>
+    <string name="compute">Calculer</string>
+    <string name="dialog_title">Bonjour %1$s</string>
+    <string name="dialog_message">Votre dernier résultat était %1$.2f Kcal,\nVoulez vous le recalculer ?</string>
+    <string name="language_settings">Changer de langue</string>
+    <string name="calendar">Calendier</string>
+    <string name="gender">Genre biologique :</string>
+    <string name="men">Homme</string>
+    <string name="women">Femme</string>
+    <string name="birthdate">Date de naissance :</string>
+    <string name="weight">Poids :</string>
+    <string name="height">Taille :</string>
+    <string name="meter">Metre</string>
+    <string name="Centimeter">Centimetre</string>
+    <string name="physical_act">Activité physique :</string>
+    <string name="sedentary">Sédentaire</string>
+    <string name="active">Actif</string>
+    <string name="sport">Sportif</string>
+    <string name="showing">Détail :</string>
+    <string name="result">Résultats :</string>
+    <string name="waiting_compute">Vous devez cliquez sur le bouton \'Calculer\' pour voir le résultat.</string>
+    <string name="result_simple">Votre comsomation journalière devrais être de  %1$.2f Kcal.</string>
+    <string name="result_complex">%1$s Vous êtes %2$s. Votre comsomation journalière devrais être de  %3$.2f Kcal.</string>
+    <string name="reset">RAZ</string>
+    <string name="data_removed">Vos données on été suprimées</string>
+    <string name="error">Erreur</string>
+    <string name="error_date">Dit-donc mon gars, tu pourrai me faire une bonne date ?</string>
+    <string name="error_number">Vous avez mis un caractère dans un champ de nombres seulement</string>
+    <string name="error_null">Remplir tout les champs</string>
+    <string name="error_global">Une erreur s\'est produite !</string>
+    <string name="error_no_result">Vous devez calculer votre résultat d\'abord.</string>
+    <string name="error_no_mail">Aucun client mail trouvé.</string>
+    <string name="mail_content">Mon dernier calcul de calorie était %1$.2f.</string>
+</resources>
