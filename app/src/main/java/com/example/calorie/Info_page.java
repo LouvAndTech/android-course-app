@@ -213,6 +213,7 @@ public class Info_page extends AppCompatActivity {
     protected void onReset(){
         saveData("0",0.0);
         Toast.makeText(this, R.string.data_removed, Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 

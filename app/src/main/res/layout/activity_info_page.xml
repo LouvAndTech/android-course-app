@@ -215,7 +215,7 @@
         android:layout_width="375dp"
         android:layout_height="200dp"
         android:alpha="1"
-        android:background="@color/grey"
+        android:background="?colorSecondaryContainer"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

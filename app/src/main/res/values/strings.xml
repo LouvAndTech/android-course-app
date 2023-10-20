@@ -36,7 +36,12 @@
     <string name="result_complex">%1$s you are %2$s. Your daily calorie consumption should be %3$.2f Kcal.</string>
     <string name="reset">Reset</string>
     <string name="data_removed">Your data have been removed</string>
-    <string name="mail_content">My last calorie number was %1$.2f.</string>
+    <string name="mail_content">My last calorie number was %1$.2f Kcal.</string>
+
+    <!-- Food Recipe -->
+    <string name="label_slider">Kcal you want in your meal :</string>
+    <string name="shearch">Search</string>
+    <string name="kcal" translatable="false">%1$s Kcal</string>
 
     <!-- Error -->
     <string name="error">Error</string>
@@ -46,5 +51,10 @@
     <string name="error_global">Something went wrong !</string>
     <string name="error_no_result">You need to compute your result first.</string>
     <string name="error_no_mail">There is no email client installed.</string>
+
+    <!-- Placeholder -->
+    <string name="placeholder" translatable="false">Placeholder</string>
+
+
 
 </resources>

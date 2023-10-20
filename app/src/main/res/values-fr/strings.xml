@@ -6,6 +6,7 @@
     <string name="compute">Calculer</string>
     <string name="dialog_title">Bonjour %1$s</string>
     <string name="dialog_message">Votre dernier résultat était %1$.2f Kcal,\nVoulez vous le recalculer ?</string>
+    <string name="recipe_button">Recette des cuisine</string>
     <string name="language_settings">Changer de langue</string>
     <string name="calendar">Calendier</string>
     <string name="gender">Genre biologique :</string>
@@ -27,6 +28,8 @@
     <string name="result_complex">%1$s Vous êtes %2$s. Votre comsomation journalière devrais être de  %3$.2f Kcal.</string>
     <string name="reset">RAZ</string>
     <string name="data_removed">Vos données on été suprimées</string>
+    <string name="label_slider">Nombre de Kcal dans votre plat :</string>
+    <string name="shearch">Chercher</string>
     <string name="error">Erreur</string>
     <string name="error_date">Dit-donc mon gars, tu pourrai me faire une bonne date ?</string>
     <string name="error_number">Vous avez mis un caractère dans un champ de nombres seulement</string>
@@ -34,5 +37,5 @@
     <string name="error_global">Une erreur s\'est produite !</string>
     <string name="error_no_result">Vous devez calculer votre résultat d\'abord.</string>
     <string name="error_no_mail">Aucun client mail trouvé.</string>
-    <string name="mail_content">Mon dernier calcul de calorie était %1$.2f.</string>
+    <string name="mail_content">Mon dernier calcul de calorie était %1$.2f Kcal.</string>
 </resources>

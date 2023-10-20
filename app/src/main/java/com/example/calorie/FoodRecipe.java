@@ -1,41 +1,131 @@
 package com.example.calorie;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.webkit.WebView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.*;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.slider.RangeSlider;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
 public class FoodRecipe extends AppCompatActivity {
 
+    //Toolbar
+    Toolbar toolbar = null;
+
+    //Slider and buttons
+    RangeSlider slider = null;
+    Button search = null;
+
+    //recipe_list
+    LinearLayout recipe_list = null;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_recipe);
+
+        //Import Toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Import Slider and buttons
+        slider = findViewById(R.id.calorie_slider);
+        search = findViewById(R.id.search_button);
+
+        //Import recipe_list
+        recipe_list = findViewById(R.id.recipe_list);
+        //Event listener on the search button
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Clear the recipe list
+                recipe_list.removeAllViews();
+                //Get the values of the slider
+                String calories_min = slider.getValues().get(0).toString();
+                String calories_max = slider.getValues().get(1).toString();
+                //Request the API
+                RequestAPI(calories_min, calories_max);
+            }
+        });
+
     }
 
-    private void RequestAPI(){
+    //Add a recipe to the list
+    protected void addRecipe(String img_url, String name, String calories){
+        //Create a new recipe view
+        View child = View.inflate(this, R.layout.recipe, null);
+        //Using the url to load the image
+        WebView img = child.findViewById(R.id.img);
+        //Fit the image to the screen
+        img.getSettings().setLoadWithOverviewMode(true);
+        img.getSettings().setUseWideViewPort(true);
+        Log.d("API Response URL In add", img_url);
+        img_url ="https://spoonacular.com/recipeImages/656481-312x231.jpg";
+        img.loadUrl(img_url);
+        //Get the fields
+        TextView title = child.findViewById(R.id.title);
+        TextView cal = child.findViewById(R.id.description);
+        //Remove the quotes from the name
+        name = name.substring(1, name.length() - 1);
+        //Set the texts
+        title.setText(name);
+        cal.setText(getString(R.string.kcal, calories));
+        //Add the recipe to the view
+        recipe_list.addView(child);
+    }
+
+    //Create the menu in the toolbar
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.return_only, menu);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        return true;
+    }
+
+    private void RequestAPI(String calories_min, String calories_max){
         // Create a request queue
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "https://api.quotable.io/random";
+        String url = "https://api.spoonacular.com/recipes/findByNutrients?minCalories="+calories_min+"&maxCalories="+calories_max+"&number=3&random=true&apiKey="+API_keys.SPOONACULAR;
+        //String url = "https://api.quotable.io/random";
         // Create a listener for the response
-        Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+        Response.Listener<JSONArray> responseListener = new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONArray response) {
                 // Parse the JSON response
                 Gson gson = new Gson();
                 JsonElement jsonElement = gson.fromJson(response.toString(), JsonElement.class);
-                //Log
-                Log.d("API Response", jsonElement.toString());
-                Log.d("API Response", jsonElement.getAsJsonObject().get("content").getAsString());
+                //For each of the three recipes
+                for (int i = 0; i < 3; i++) {
+                    //Get the title, image and calories
+                    String title = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("title").toString();
+                    String img_url = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("image").toString();
+                    Log.d("API Response URL", img_url);
+                    String calories = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("calories").toString();
+                    //Add the recipe to the list
+                    //img_url = "https://spoonacular.com/recipeImages/649411-312x231.jpg";
+                    addRecipe(img_url, title, calories);
+                }
             }
         };
         // Handle errors in the response
@@ -43,10 +133,11 @@ public class FoodRecipe extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e("API Error", error.toString());
+                Toast.makeText(FoodRecipe.this, R.string.error+": " + error.toString(), Toast.LENGTH_SHORT).show();
             }
         };
         // Create a GET request to the API
-        JsonObjectRequest request = new JsonObjectRequest(
+        JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET,
                 url,
                 null,

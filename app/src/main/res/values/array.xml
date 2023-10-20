@@ -13,4 +13,8 @@
         <item>@string/meter</item>
         <item>@string/Centimeter</item>
     </array>
+    <array name="initial_range_slider_values">
+        <item>100.0</item>
+        <item>700.0</item>
+    </array>
 </resources>
