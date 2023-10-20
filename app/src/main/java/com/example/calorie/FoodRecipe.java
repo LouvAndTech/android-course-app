@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.slider.RangeSlider;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -76,13 +78,11 @@ public class FoodRecipe extends AppCompatActivity {
         //Create a new recipe view
         View child = View.inflate(this, R.layout.recipe, null);
         //Using the url to load the image
-        WebView img = child.findViewById(R.id.img);
-        //Fit the image to the screen
-        img.getSettings().setLoadWithOverviewMode(true);
-        img.getSettings().setUseWideViewPort(true);
-        Log.d("API Response URL In add", img_url);
-        img_url ="https://spoonacular.com/recipeImages/656481-312x231.jpg";
-        img.loadUrl(img_url);
+        ImageView img = child.findViewById(R.id.img);
+        //Remove the quotes from the url
+        img_url=img_url.substring(1, img_url.length() - 1);
+        //Download the image and add it
+        Picasso.get().load(img_url).resize(200,200).centerCrop().into(img);
         //Get the fields
         TextView title = child.findViewById(R.id.title);
         TextView cal = child.findViewById(R.id.description);
@@ -120,7 +120,6 @@ public class FoodRecipe extends AppCompatActivity {
                     //Get the title, image and calories
                     String title = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("title").toString();
                     String img_url = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("image").toString();
-                    Log.d("API Response URL", img_url);
                     String calories = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("calories").toString();
                     //Add the recipe to the list
                     //img_url = "https://spoonacular.com/recipeImages/649411-312x231.jpg";
