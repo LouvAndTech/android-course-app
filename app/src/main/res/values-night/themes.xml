@@ -3,7 +3,13 @@
     <style name="Base.Theme.CALORIE" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorSecondaryContainer">@color/grey_dark</item>
+        <item name="colorSecondaryContainer">@color/colorSecondary_night</item>
+        <item name="android:windowBackground">@color/colorPrimary_night</item>
+        <item name="android:statusBarColor">@color/colorTernary_night</item>
+        <item name="colorOnSecondary">@color/colorAccent_night</item>
+        <item name="colorOnPrimary">@color/colorAccent_night</item>
+        <item name="colorPrimary">@color/colorSecondary_night</item>
+        <item name="android:itemBackground">@color/colorSecondary_night</item>
 
     </style>
 </resources>

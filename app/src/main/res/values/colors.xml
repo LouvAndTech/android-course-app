@@ -2,6 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#E0E0E0</color>
-    <color name="grey_dark">#202020</color>
+
+    <!-- Light -->
+    <color name="colorPrimary">#F5EEC8</color>
+    <color name="colorSecondary">#A7D397</color>
+    <color name="colorTernary">#D0D4CA</color>
+    <color name="colorAccent">#555843</color>
+    <!-- Night -->
+    <color name="colorPrimary_night">#191825</color>
+    <color name="colorSecondary_night">#865DFF</color>
+    <color name="colorTernary_night">#E384FF</color>
+    <color name="colorAccent_night">#ffdefe</color>
 </resources>

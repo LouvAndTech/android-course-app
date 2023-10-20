@@ -106,8 +106,8 @@ public class FoodRecipe extends AppCompatActivity {
     private void RequestAPI(String calories_min, String calories_max){
         // Create a request queue
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "https://api.spoonacular.com/recipes/findByNutrients?minCalories="+calories_min+"&maxCalories="+calories_max+"&number=3&random=true&apiKey="+API_keys.SPOONACULAR;
-        //String url = "https://api.quotable.io/random";
+        Integer number = 4;
+        String url = "https://api.spoonacular.com/recipes/findByNutrients?minCalories="+calories_min+"&maxCalories="+calories_max+"&number="+number+"&random=true&apiKey="+API_keys.SPOONACULAR;
         // Create a listener for the response
         Response.Listener<JSONArray> responseListener = new Response.Listener<JSONArray>() {
             @Override
@@ -116,7 +116,7 @@ public class FoodRecipe extends AppCompatActivity {
                 Gson gson = new Gson();
                 JsonElement jsonElement = gson.fromJson(response.toString(), JsonElement.class);
                 //For each of the three recipes
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < number; i++) {
                     //Get the title, image and calories
                     String title = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("title").toString();
                     String img_url = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("image").toString();
