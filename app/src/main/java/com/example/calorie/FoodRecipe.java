@@ -21,6 +21,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.slider.RangeSlider;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.squareup.picasso.Picasso;
 
@@ -113,17 +114,22 @@ public class FoodRecipe extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 // Parse the JSON response
-                Gson gson = new Gson();
-                JsonElement jsonElement = gson.fromJson(response.toString(), JsonElement.class);
-                //For each of the three recipes
-                for (int i = 0; i < number; i++) {
-                    //Get the title, image and calories
-                    String title = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("title").toString();
-                    String img_url = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("image").toString();
-                    String calories = jsonElement.getAsJsonArray().get(i).getAsJsonObject().get("calories").toString();
-                    //Add the recipe to the list
-                    //img_url = "https://spoonacular.com/recipeImages/649411-312x231.jpg";
-                    addRecipe(img_url, title, calories);
+                try {
+                    Gson gson = new Gson();
+                    JsonArray jsonArray = gson.fromJson(response.toString(), JsonElement.class).getAsJsonArray();
+                    //For each of the three recipes
+                    for (int i = 0; i < jsonArray.size(); i++) {
+                        //Get the title, image and calories
+                        String title = jsonArray.get(i).getAsJsonObject().get("title").toString();
+                        String img_url = jsonArray.get(i).getAsJsonObject().get("image").toString();
+                        String calories = jsonArray.get(i).getAsJsonObject().get("calories").toString();
+                        //Add the recipe to the list
+                        //img_url = "https://spoonacular.com/recipeImages/649411-312x231.jpg";
+                        addRecipe(img_url, title, calories);
+                    }
+                } catch (Exception e) {
+                    Log.e("API Error", e.toString());
+                    Toast.makeText(FoodRecipe.this, R.string.error+": " + e.toString(), Toast.LENGTH_SHORT).show();
                 }
             }
         };

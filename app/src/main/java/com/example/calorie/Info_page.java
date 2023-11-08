@@ -141,6 +141,9 @@ public class Info_page extends AppCompatActivity {
             //Periode between the date and now
             Period period = Period.between(birth_date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             age_years = period.getYears();
+            if (age_years < 0){
+                throw new Exception("Negative age");
+            }
         } catch (Exception e) {
             Log.d("Compute", "error Gender: "+e.toString());
             //Toast to warn the user in case of error
@@ -319,6 +322,7 @@ public class Info_page extends AppCompatActivity {
             }
         };
     }
+
     private AdapterView.OnItemSelectedListener reset_result_spinner(){
         return new AdapterView.OnItemSelectedListener() {
             @Override

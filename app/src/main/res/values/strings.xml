@@ -45,7 +45,7 @@
 
     <!-- Error -->
     <string name="error">Error</string>
-    <string name="error_date">Heya mate, coun\'t ya puta good date </string>
+    <string name="error_date">Heya mate, coun\'t ya put\'a good date </string>
     <string name="error_number">You put char in a number only field</string>
     <string name="error_null">Please fill all the fields</string>
     <string name="error_global">Something went wrong !</string>
